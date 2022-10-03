@@ -1,3 +1,13 @@
+/* Default colors for themes */
+:root {
+  
+  --white: #fff; 
+  --sage: #333; 
+  --msuGreen: #017143; 
+  --sage: #333; 
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +22,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: var(--mainBg);
 }
 header {
   position: absolute;
@@ -23,7 +33,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
+  background: var(--mainBg);
 }
 header .logo {
   position: relative;
@@ -38,7 +48,7 @@ header ul li {
 }
 header ul li a {
   display: inline-block;
-  color: #333;
+  color: var(--fontColor);
   font-weight: 400;
   margin-left: 40px;
   text-decoration: none;
@@ -47,8 +57,8 @@ header ul li a {
 }
 header ul li a:hover {
   border-radius: 40px;
-  color: #fff;
-  background: #017143;
+  color: var(--mainBg);
+  background-color: var(--navLinkHoverBg);
 }
 .content {
   position: relative;
@@ -62,32 +72,33 @@ header ul li a:hover {
   max-width: 600px;
 }
 .content .textbox h2 {
-  color: #333;
+  color: var(--fontColor);
   font-size: 4em;
   line-height: 1.4;
   font-weight: 500;
 }
 .content .textbox h2 span {
-  color: #017143;
+  color: var(--heroColor);
   font-size: 1.2em;
   font-weight: 900;
 }
 .content .textbox p {
-  color: #333;
+  color: var(--fontColor);
 }
 .content .textbox a {
   display: inline-block;
   margin-top: 20px;
   padding: 8px 20px;
-  background: #017143;
-  color: #fff;
+  background: var(--navLinkHoverBg);
+  color: var(--mainBg);
   border-radius: 40px;
   font-weight: 500;
   letter-spacing: 1px;
   text-decoration: none;
 }
 .content .textbox a:hover {
-  background: #333;
+  background: var(--fontColor);
+
 }
 .content .imgBox {
   width: 600px;
@@ -120,30 +131,105 @@ header ul li a:hover {
   max-width: 60px;
 }
 .sci {
+  /* Doubled top positioning to neaten layout of icons. */
   position: relative;
-  top: 50px;
+  top: 100px;
   right: 30px;
   transform: translateY(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
 }
 .sci li {
   list-style: none;
+  
+
 }
 .sci li a {
+  /* Increased scale of icons to 2 to account for Font Awesoem sizing. */
   display: inline-block;
-  margin: 5px 0;
-  transform: scale(0.6);
+  margin: 20px 0;
+  transform: scale(2);
   filter: invert(1);
+
 }
+
 .circle {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #017143;
+  background: var(--circleBg);
   clip-path: circle(600px at right 800px);
+}
+
+/* Styles for the toggle switch */
+.switch {
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch div {
+  position: relative;
+  display: block;
+  background: var(--navBg);
+  color: var(--mainBg);
+  width: 30px;
+  border-radius: 50px;
+  padding: 0 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.fa-adjust {
+  transform: rotate(180deg);
+  color: var(--circleBg)
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--mainBg);
+  color: var(--circleBg);
+  transition: 0.4s;
+  border-radius: 34px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  position: relative;
+}
+
+input:checked + .slider {
+  transform: translateX(8px);
+}
+
+/* color settings for the themes that apply with the switch is toggled.  */
+
+.light-theme {
+  --navBg: var(--msuGreen);
+  --navLinkHoverBg: var(--msuGreen);
+  --mainBg: var(--white);
+  --circleBg: var(--msuGreen);
+  --swtichBg: var(--msuGreen);
+  --fontColor: var(--sage);
+  --heroColor: var(--msuGreen);
+}
+
+
+.dark-theme {
+  --navBg: var(--white);
+  --navLinkHoverBg: var(--white);
+  --mainBg: var(--msuGreen);
+  --circleBg: var(--white);
+  --switchBg: var(--white);
+  --fontColor: var(--white);
+  --heroColor: var(--white)
+
 }
