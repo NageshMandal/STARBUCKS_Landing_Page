@@ -1,10 +1,5 @@
 const headerBtn = document.querySelectorAll(".header-btn");
 const activeColor = document.querySelector(".active-color");
-const themeSwitch = document.querySelector('input');
-
-themeSwitch.addEventListener('change', () => {
-  document.body.classList.toggle('dark-theme');
-});
 
 function imgSlider(anything) {
   document.querySelector(".starbucks").src = anything;
